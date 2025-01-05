@@ -1,0 +1,47 @@
+/* Global resets and styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+/* Utility classes */
+.hidden {
+    display: none;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section {
+  height: 100vh; /* Full height of the viewport */
+  width: 100%; /* Full width */
+  display: flex; /* Center content */
+  justify-content: center; /* Horizontal alignment */
+  align-items: center; /* Vertical alignment */
+  text-align: center;
+  font-size: 2rem;
+  background: none; /* Ensure no background is inherited */
+  box-sizing: border-box; /* Include padding/borders in height */
+}
+
+/* Example section-specific colors */
+.section.about-section {
+    background-color: #f4a261 !important;
+  }
+  
+  .section.projects-section {
+    background-color: #2a9d8f !important;
+  }
+  
+  .section.shop-section {
+    background-color: #e76f51 !important;
+  }
+  
+  .section.contact-section {
+    background-color: #264653 !important;
+  }

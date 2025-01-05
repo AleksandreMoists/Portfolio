@@ -4,8 +4,8 @@ import Shop from "../pages/Shop";
 import Contact from "../pages/Contact";
 
 export const sectionData = [
-  { id: "about", className: "about-section", Component: About },
-  { id: "projects", className: "projects-section", Component: Projects }, 
-  { id: "shop", className: "shop-section", Component: Shop },
-  { id: "contact", className: "contact-section", Component: Contact },
+  { id: "about", className: "about-section", component: <About /> },
+  { id: "projects", className: "projects-section", component: <Projects /> },
+  { id: "shop", className: "shop-section", component: <Shop /> },
+  { id: "contact", className: "contact-section", component: <Contact /> },
 ];

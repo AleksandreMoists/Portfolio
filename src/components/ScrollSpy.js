@@ -15,7 +15,7 @@ export const useScrollSpy = (sectionsRefs) => {
             { threshold: 0.5 }
         );
 
-        sectionRefs.forEach((ref) => {
+        sectionsRefs.forEach((ref) => {
             if (ref.current) {
                 observer.observe(ref.current);
             };

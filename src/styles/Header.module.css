@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    top: 0;
+    z-index: 1000;
+}
+
+.navList {
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    list-style: none;
+    text-transform: uppercase;
+    padding: 2rem;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    width: 100%; /* Use the full width of the container */
+    gap: 3rem; /* Adjust spacing between items */
+}
+
+.navItem {
+    margin: 0; /* Remove fixed margin */
+    padding: 0; /* Remove fixed padding */
+    font-size: 1.2rem;
+    flex-shrink: 1; /* Allow items to shrink if necessary */
+    cursor: pointer;
+    user-select: none;
+}
+
+.navItem:active {
+    color:red;
+}
+
+navItem:hover {
+    color: red;
+}
+
+.seperator {
+    font-size: 50px;
+    margin-top: -32px;
+    user-select: none;
+}
+
+
