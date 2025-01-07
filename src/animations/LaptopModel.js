@@ -48,8 +48,17 @@ const LaptopModel = () => {
     const rotation = { x: 0, y: 0 }; // Track rotation state for X and Y axes
 
     // Mouse Events for Rotation
-    const onMouseDown = () => (isDragging = true);
-    const onMouseUp = () => (isDragging = false);
+    const onMouseDown = (event) => {
+      isDragging = true;
+      previousMousePosition = { x: event.clientX, y: event.clientY };
+      event.preventDefault(); // Prevent default behavior (e.g., text selection)
+    };
+
+    const onMouseUp = (event) => {
+      isDragging = false;
+      event.preventDefault(); // Prevent default behavior
+    };
+
     const onMouseMove = (event) => {
       if (isDragging && laptopRef.current) {
         const deltaMove = {
@@ -65,16 +74,19 @@ const LaptopModel = () => {
         laptopRef.current.rotation.y = rotation.y;
 
         previousMousePosition = { x: event.clientX, y: event.clientY };
+        event.preventDefault(); // Prevent default behavior
       }
     };
 
+    const onContextMenu = (event) => {
+      event.preventDefault(); // Disable right-click context menu
+    };
+
     // Event Listeners
-    window.addEventListener("mousedown", (event) => {
-      isDragging = true;
-      previousMousePosition = { x: event.clientX, y: event.clientY };
-    });
-    window.addEventListener("mouseup", () => (isDragging = false));
+    window.addEventListener("mousedown", onMouseDown);
+    window.addEventListener("mouseup", onMouseUp);
     window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("contextmenu", onContextMenu);
 
     // Animation Loop
     const animate = () => {
@@ -90,10 +102,11 @@ const LaptopModel = () => {
       window.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mouseup", onMouseUp);
       window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("contextmenu", onContextMenu);
     };
   }, []);
 
-  return <div ref={mountRef} style={{ width: "100%", height: "100vh" }}></div>;
+  return <div ref={mountRef} style={{ width: "100%", height: "100vh", overflow: "hidden" }}></div>;
 };
 
 export default LaptopModel;
