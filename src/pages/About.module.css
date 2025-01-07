@@ -1,0 +1,43 @@
+.aboutPage {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 5rem;
+    overflow: hidden;
+}
+
+.selfIntro {
+    width: auto;
+    height: auto;
+    background-color: #f4f4f4;
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    user-select: none;
+    cursor: text;
+    font-family: 'Playfair Display', serif; /* Elegant font */
+}
+
+.aboutContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    height: auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: white;
+    cursor: text;
+    user-select: none;
+    font-family: 'Montserrat', sans-serif; /* Modern font */
+}
+
+.laptopModel {
+    background-color:green;
+}

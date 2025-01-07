@@ -1,11 +1,23 @@
 import React from "react";
+import Typewriter from "../animations/introAnimation";
+import styles from './About.module.css';
+import PassionateDeveloper from "../animations/infoAnimation";
+import LaptopModel from "../animations/LaptopModel";
+
 
 const About = () => {
   return (
-    <section id="about" className="section about-section">
-      <h1>About</h1>
-      <p>Learn more about me and my journey.</p>
-    </section>
+    <div className={styles.aboutPage}>
+      <div className={styles.selfIntro}>
+      <Typewriter />
+      </div>
+      <div>
+        <PassionateDeveloper />
+      </div>
+      <div className={styles.laptopModel}>
+      <LaptopModel />
+      </div>
+    </div>
   );
 };
 
