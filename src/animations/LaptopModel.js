@@ -4,59 +4,77 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const LaptopModel = () => {
   const mountRef = useRef(null);
-  const laptopRef = useRef(null); // Reference for the laptop model
+  const laptopRef = useRef(null);
 
   useEffect(() => {
-    // Scene, Camera, Renderer
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 2, 20); // Default camera position
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000); // Use a fixed aspect ratio
+    camera.position.set(0, 0, 8.5); // Adjust Z for zoom level
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(400, 400); // Fixed width and height
     renderer.setPixelRatio(window.devicePixelRatio);
     mountRef.current.appendChild(renderer.domElement);
 
-    // Lighting
     const light = new THREE.PointLight(0xffffff, 1.5);
     light.position.set(5, 5, 5);
     scene.add(light);
 
+    const spotlight = new THREE.SpotLight(0xffffff, 1);
+    spotlight.position.set(10, 10, 10);
+    scene.add(spotlight);
+
+
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
 
-    // Load Laptop Model
     const loader = new GLTFLoader();
     loader.load(
-      "/models/laptop.glb", // Path to the laptop model
+      "/models/laptop.glb",
       (gltf) => {
         const laptop = gltf.scene;
-        laptop.scale.set(1, 1, 1); // Adjust the scale
+        laptop.scale.set(0, 0, 0); // Start with the model scaled to 0
         laptop.position.set(0, -1, 0); // Center the model
         scene.add(laptop);
-        laptopRef.current = laptop; // Save reference to the laptop
+        laptopRef.current = laptop;
+
+        // Add Pop Animation (Scale Up)
+        let animationProgress = 0;
+        const animationDuration = 1.7; // 2 seconds
+        const targetScale = 0.5; // Final scale
+
+        const animateLaptop = () => {
+          if (animationProgress < animationDuration) {
+            animationProgress += 0.01; // Animation speed
+            const easeOut = Math.sin((animationProgress / animationDuration) * (Math.PI / 2)); // Ease-out effect
+            const scale = easeOut * targetScale;
+            laptop.scale.set(scale, scale, scale); // Smoothly scale the model
+          }
+        };
+
+        // Add the scale animation into the render loop
+        const animate = () => {
+          requestAnimationFrame(animate);
+          animateLaptop();
+          renderer.render(scene, camera);
+        };
+        animate();
       },
       undefined,
-      (error) => {
-        console.error("An error occurred while loading the model:", error);
-      }
+      (error) => console.error("An error occurred while loading the model:", error)
     );
 
-    // Mouse Rotation Variables
+    // Rotation Logic
     let isDragging = false;
     let previousMousePosition = { x: 0, y: 0 };
-    const rotation = { x: 0, y: 0 }; // Track rotation state for X and Y axes
 
-    // Mouse Events for Rotation
     const onMouseDown = (event) => {
       isDragging = true;
       previousMousePosition = { x: event.clientX, y: event.clientY };
-      event.preventDefault(); // Prevent default behavior (e.g., text selection)
     };
 
-    const onMouseUp = (event) => {
+    const onMouseUp = () => {
       isDragging = false;
-      event.preventDefault(); // Prevent default behavior
     };
 
     const onMouseMove = (event) => {
@@ -67,46 +85,31 @@ const LaptopModel = () => {
         };
 
         // Update rotation based on mouse movement
-        rotation.x += deltaMove.y * 0.01; // Adjust rotation on X-axis
-        rotation.y += deltaMove.x * 0.01; // Adjust rotation on Y-axis
-
-        laptopRef.current.rotation.x = rotation.x;
-        laptopRef.current.rotation.y = rotation.y;
+        const rotationSpeed = 0.01; // Adjust rotation speed
+        laptopRef.current.rotation.y += deltaMove.x * rotationSpeed; // Horizontal rotation
+        laptopRef.current.rotation.x += deltaMove.y * rotationSpeed; // Vertical rotation
 
         previousMousePosition = { x: event.clientX, y: event.clientY };
-        event.preventDefault(); // Prevent default behavior
       }
     };
 
-    const onContextMenu = (event) => {
-      event.preventDefault(); // Disable right-click context menu
-    };
+    // Add Event Listeners to the Container
+    const container = mountRef.current;
+    container.addEventListener("mousedown", onMouseDown);
+    container.addEventListener("mouseup", onMouseUp);
+    container.addEventListener("mousemove", onMouseMove);
 
-    // Event Listeners
-    window.addEventListener("mousedown", onMouseDown);
-    window.addEventListener("mouseup", onMouseUp);
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("contextmenu", onContextMenu);
-
-    // Animation Loop
-    const animate = () => {
-      requestAnimationFrame(animate);
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    // Handle Cleanup
+    // Cleanup
     return () => {
       renderer.dispose();
-      mountRef.current.removeChild(renderer.domElement);
-      window.removeEventListener("mousedown", onMouseDown);
-      window.removeEventListener("mouseup", onMouseUp);
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("contextmenu", onContextMenu);
+      container.removeChild(renderer.domElement);
+      container.removeEventListener("mousedown", onMouseDown);
+      container.removeEventListener("mouseup", onMouseUp);
+      container.removeEventListener("mousemove", onMouseMove);
     };
   }, []);
 
-  return <div ref={mountRef} style={{ width: "100%", height: "100vh", overflow: "hidden" }}></div>;
+  return <div ref={mountRef} style={{ width: "400px", height: "400px", overflow: "hidden" }}></div>;
 };
 
 export default LaptopModel;

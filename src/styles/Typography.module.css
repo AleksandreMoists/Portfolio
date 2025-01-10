@@ -1,0 +1,48 @@
+/* h1 styles */
+.h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  /* h2 styles */
+  .h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.8rem;
+  }
+  
+  /* h3 styles */
+  .h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #EF6D58;
+
+    margin-bottom: 0;
+  }
+  
+  /* p styles */
+  .p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #999;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  /* Additional styles (optional) */
+  .center {
+    text-align: center;
+  }
+  
+  .uppercase {
+    text-transform: uppercase;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  

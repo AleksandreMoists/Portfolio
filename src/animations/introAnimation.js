@@ -3,17 +3,15 @@ import {ReactTyped as Typed} from "react-typed";
 
 const Typewriter = () => {
   return (
-    <div style={{ fontSize: "2rem", textAlign: "center", marginTop: "20px" }}>
+    <div style={{ fontSize: "1.5rem", textAlign: "center", marginTop: "20px" }}>
       <Typed
         strings={[
-          "Welcome to My Portfolio",
-          "I am a Web Developer",
-          "I am a Designer",
-          "Let's Create Something Awesome!",
+          "Full-Stack Developer",
+          "React Developer",
+          "Node.js Developer",
+          "Let's build something amazing together!",
         ]}
         typeSpeed={50} // Typing speed
-        backSpeed={30} // Backspace speed
-        loop // Makes it loop indefinitely
       />
     </div>
 

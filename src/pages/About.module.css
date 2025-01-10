@@ -1,43 +1,49 @@
 .aboutPage {
+    display: flex;
+    flex-direction: row; /* Stack items vertically */
+    justify-content: flex-start; /* Start items from the top */
+    align-items: center; /* Center items horizontally */
+    height: auto; /* Allow content to define height */
     width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding-top: 5rem;
-    overflow: hidden;
+    box-sizing: border-box;
+    gap: 10rem;
 }
 
-.selfIntro {
-    width: auto;
-    height: auto;
-    background-color: #f4f4f4;
-    font-size: 2rem;
-    text-align: center;
-    color: #333;
-    user-select: none;
-    cursor: text;
-    font-family: 'Playfair Display', serif; /* Elegant font */
+.typewriter {
+    padding-right: 10rem;
 }
 
 .aboutContent {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 2rem;
-    justify-content: center;
-    align-items: center;
-    width: 20rem;
-    height: auto;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: white;
-    cursor: text;
-    user-select: none;
-    font-family: 'Montserrat', sans-serif; /* Modern font */
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 15rem;
 }
 
-.laptopModel {
-    background-color:green;
+.heading {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.3;
+    color: #333;
+    padding-right: 3rem;
+  }
+
+
+.paragraph {
+    padding-left: 2rem;
 }
+.container {
+    position: relative; /* To allow positioning of child elements */
+    display: inline-block; /* Ensures the size matches the SVG */
+  }
+  
+  .laptopSvg {
+    position: absolute; /* Position inside the OvalShapeSvg */
+    top: 50%; 
+    left: -20%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by 50% to truly center */
+    width: 100px; /* Adjust size to fit inside */
+  }
+  
+  

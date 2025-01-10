@@ -20,19 +20,17 @@ body, html {
 .section {
   height: 100vh; /* Full height of the viewport */
   width: 100%; /* Full width */
-  display: flex; /* Center content */
-  justify-content: center; /* Horizontal alignment */
-  align-items: center; /* Vertical alignment */
   text-align: center;
   font-size: 2rem;
-  background: none; /* Ensure no background is inherited */
-  box-sizing: border-box; /* Include padding/borders in height */
+  background: none;
+  box-sizing: border-box;
 }
 
-/* Example section-specific colors */
-.section.about-section {
-    background-color: #f4a261 !important;
-  }
+.section.about-section .aboutPage {
+  display: flex;
+  flex-direction: column; /* Ensure a column layout for the About section */
+}
+
   
   .section.projects-section {
     background-color: #2a9d8f !important;
