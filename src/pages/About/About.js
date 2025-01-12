@@ -1,15 +1,17 @@
 import React from "react";
-import Typewriter from "../animations/introAnimation";
+import Typewriter from "../../animations/introAnimation";
 import styles from './About.module.css';
-import LaptopModel from "../animations/LaptopModel";
-import { OvalShapeSvg } from "../assets/svgs/OvalShapeSvg";
-import Typography from "../components/Typography";
-import { LaptopSvg } from "../assets/svgs/LaptopSvg";
-import CircleShapeSvg from "../assets/svgs/CircleShapeSvg";
-import CurlyShapeSvg from "../assets/svgs/CurlyShapeSvg";
-import Reviews from "../components/Review";
-import ArrowSvg from "../assets/svgs/ArrowSvg";
-import photo from "../assets/images/photo.jpeg";
+import LaptopModel from "../../animations/LaptopModel";
+import { OvalShapeSvg } from "../../assets/svgs/AboutPageSvgs/OvalShapeSvg";
+import Typography from "../../components/Typography";
+import { LaptopSvg } from "../../assets/svgs/AboutPageSvgs/LaptopSvg";
+import CircleShapeSvg from "../../assets/svgs/AboutPageSvgs/CircleShapeSvg";
+import CurlyShapeSvg from "../../assets/svgs/AboutPageSvgs/CurlyShapeSvg";
+import Reviews from "../../components/Review";
+import ArrowSvg from "../../assets/svgs/AboutPageSvgs/ArrowSvg";
+import BrainSvg from "../../assets/svgs/AboutPageSvgs/BrainSvg";
+import Photo from "../../assets/images/Photo.png"
+import Technologies from "../../components/Technologies";
 
 const About = () => {
   return (
@@ -28,19 +30,18 @@ const About = () => {
         I specialize in building high-quality websites and applications <br />
         that are both performant and accessible.
       </Typography>
+      <div className={styles.buttons}>
       </div>
-        
+      </div>  
+
       <div className={styles.assetsContent}>
         <div className={styles.container}>
           <span className={styles.circleSvg}>
             <CircleShapeSvg />
           </span>
           <div className={styles.firstShape}>
-            <span className={styles.ovalSvg}>
-              <OvalShapeSvg />
-            </span>
             <span className={styles.laptopSvg}>
-                <LaptopSvg width={250} />
+                <LaptopModel />
             </span>
           </div>
           <span className={styles.curlySvg}>
@@ -56,12 +57,19 @@ const About = () => {
             <span className={styles.photoShape}>
               <OvalShapeSvg fill="#FFD700" />
             </span>
-            {/* <span className={styles.photo}>
-              <img src={photo} alt="photo" />
-            </span> */}
+            <span className={styles.photo}>
+              <img src={Photo} alt="photo" />
+            </span>
           </div>
-        </div>
+          <span className={styles.brainSvg}>
+              <BrainSvg />
+          </span>
 
+        </div>
+      </div>
+      
+      <div className={styles.technologiesContent}>
+          <Technologies />
       </div>
     </div>
   );

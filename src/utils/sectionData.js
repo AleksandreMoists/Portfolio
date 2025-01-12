@@ -1,7 +1,7 @@
-import About from "../pages/About";
-import Projects from "../pages/Projects";
-import Shop from "../pages/Shop";
-import Contact from "../pages/Contact";
+import About from "../pages/About/About";
+import Projects from "../pages/Projects/Projects";
+import Shop from "../pages/Shop/Shop";
+import Contact from "../pages/Contact/Contact";
 
 export const sectionData = [
   { id: "about", className: "about-section", component: <About /> },
