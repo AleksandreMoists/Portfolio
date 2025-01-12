@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-left: 15rem;
+    padding-left: 10rem;
 }
 
 .heading {
@@ -36,14 +36,70 @@
 .container {
     position: relative; /* To allow positioning of child elements */
     display: inline-block; /* Ensures the size matches the SVG */
+    }
+
+  .firstShape {
+    padding-top: 10rem;
+    position: absolute; /* Position inside the OvalShapeSvg */
+    top: 30%; 
+    left: 20%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by 50% to truly center */
+    width: 100px; /* Adjust size to fit inside */
+    background-color: green;
   }
   
+  .ovalSvg {
+    position: absolute; /* Position inside the OvalShapeSvg */
+    top: 10%; 
+    left: 0; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by 50% to truly center */
+    width: 100px; /* Adjust size to fit inside */
+  }
   .laptopSvg {
     position: absolute; /* Position inside the OvalShapeSvg */
-    top: 50%; 
-    left: -20%; /* Center horizontally */
+    top: 10%; 
+    left: 10%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Offset by 50% to truly center */
     width: 100px; /* Adjust size to fit inside */
   }
   
+.curlySvg {
+  display: flex;
+  position: absolute;
+  bottom: 20%;
+  left: -26%;
+}
+
+.reviewContent {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  position: absolute; /* Position it relative to the circle */
+  bottom: 10%; /* Move to the bottom of the circle */
+  left: 30%; /* Center horizontally within the circle */
+  transform: translateX(-50%); /* Adjust for true centering */
+  text-align: center; /* Center text inside the review content */
+  font-size: 0.9rem; /* Adjust font size */
+  width: 80%; /* Set width relative to the circle */
+  z-index: 1; /* Ensure it stays inside the circle */
+}
+
   
+.arrowSvg {
+  display: flex;
+  position: absolute;
+  bottom: -20%;
+  left: 80%;
+}
+
+.photoContainer {
+  display: inline-block;
+  position: absolute;
+  top: 10%; 
+  right: 25%;
+}
+
+.photoShape {
+  display: flex;
+  position: absolute;
+}

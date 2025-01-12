@@ -1,0 +1,93 @@
+/* Reviews.module.css */
+
+/* Wrapper for reviews and dots */
+.reviewsContainer {
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 2rem; /* Space for dots */
+  }
+  
+  /* Wrapper for the sliding reviews */
+  .reviewWrapper {
+    overflow: hidden; /* Hide content outside the container */
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Each review card */
+  .reviewCard {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 100%;
+    position: absolute; /* Allows for animation to slide out/in */
+  }
+  
+  /* Profile photo */
+  .photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+  }
+  
+  /* Textual info in the review */
+  .info {
+    flex: 1;
+  }
+  
+  .role {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .separator {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 0.5rem 0;
+  }
+  
+  .text {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+  }
+  
+  /* Dots container */
+  .dotsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between dots */
+    position: absolute;
+    bottom: -170px; /* Adjust based on spacing */
+    left: 0;
+    right: 0;
+  }
+  
+  /* Dot styling */
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  /* Active dot */
+  .activeDot {
+    background-color: #b550f8; /* Active color */
+    transform: scale(1.2); /* Slightly enlarge active dot */
+  }
+  
