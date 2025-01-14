@@ -3,16 +3,16 @@ import Typewriter from "../../animations/introAnimation";
 import styles from './About.module.css';
 import LaptopModel from "../../animations/LaptopModel";
 import { OvalShapeSvg } from "../../assets/svgs/AboutPageSvgs/OvalShapeSvg";
-import Typography from "../../components/Typography";
+import Typography from "../../components/Typography/Typography";
 import { LaptopSvg } from "../../assets/svgs/AboutPageSvgs/LaptopSvg";
 import CircleShapeSvg from "../../assets/svgs/AboutPageSvgs/CircleShapeSvg";
 import CurlyShapeSvg from "../../assets/svgs/AboutPageSvgs/CurlyShapeSvg";
-import Reviews from "../../components/Review";
+import Reviews from "../../components/Pages/Review";
 import ArrowSvg from "../../assets/svgs/AboutPageSvgs/ArrowSvg";
 import BrainSvg from "../../assets/svgs/AboutPageSvgs/BrainSvg";
 import Photo from "../../assets/images/Photo.png"
-import Technologies from "../../components/Technologies";
-import ScrollIndicator from "../../components/ScrollIndecator";
+import Technologies from "../../components/Pages/Technologies";
+import ScrollIndicator from "../../components/Scrolls/ScrollIndecator";
 import { scrollToProjects } from "../../utils/scrollToSection";
 
 const About = () => {

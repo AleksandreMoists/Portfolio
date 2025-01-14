@@ -1,6 +1,6 @@
-import Typography from "./Typography"
+import Typography from "../Typography/Typography"
 import styles from "../styles/Technologies.module.css"
-import { technologiesData } from "../utils/data"
+import { technologiesData } from "../../utils/data"
 
 const Technologies = () => {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '../../components/Typography';
+import Typography from '../../components/Typography/Typography';
 import Typewriter from '../../animations/introAnimation';
 import styles from './Projects.module.css'
 
