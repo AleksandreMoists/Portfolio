@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const CssSvg = ( {width=20, height=20} ) => (
+const CssSvg = ( {width=50, height=50} ) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}

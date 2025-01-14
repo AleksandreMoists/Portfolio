@@ -12,6 +12,8 @@ import ArrowSvg from "../../assets/svgs/AboutPageSvgs/ArrowSvg";
 import BrainSvg from "../../assets/svgs/AboutPageSvgs/BrainSvg";
 import Photo from "../../assets/images/Photo.png"
 import Technologies from "../../components/Technologies";
+import ScrollIndicator from "../../components/ScrollIndecator";
+import { scrollToProjects } from "../../utils/scrollToSection";
 
 const About = () => {
   return (
@@ -30,8 +32,10 @@ const About = () => {
         I specialize in building high-quality websites and applications <br />
         that are both performant and accessible.
       </Typography>
-      <div className={styles.buttons}>
-      </div>
+      </div>  
+
+      <div className={styles.scrollIndicator}>
+        <ScrollIndicator onClick={scrollToProjects}/>
       </div>  
 
       <div className={styles.assetsContent}>
@@ -67,6 +71,7 @@ const About = () => {
 
         </div>
       </div>
+
       
       <div className={styles.technologiesContent}>
           <Technologies />

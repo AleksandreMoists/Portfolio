@@ -1,0 +1,33 @@
+/* Container to hold the vertical line and the text */
+.scroll-indicator-container {
+    display: flex;
+    align-items: center; /* Center vertically */
+    margin-top: 20px;
+    
+  }
+  
+  /* The vertical line (a simple thin bar) */
+  .scroll-indicator-line {
+    position: relative;
+    width: 5px;
+    height: 80px;
+    background-color: #FFFFFF; /* a light gray bar */
+    margin-right: 10px;
+    overflow: hidden; /* to hide the moving "blue" part */
+  }
+  
+  /* The blue animated part */
+  .scroll-indicator-progress {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #3498db; /* your blue color */
+  }
+  
+  /* The text beside the indicator */
+  .scroll-indicator-text {
+    color: #555;
+    font-size: 14px;
+    font-family: sans-serif;
+  }
+  

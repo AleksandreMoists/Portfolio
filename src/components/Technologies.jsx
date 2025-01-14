@@ -8,6 +8,7 @@ const Technologies = () => {
             <Typography variant="h2" className={styles.heading}>
                 Technologies I Use
             </Typography>
+            <div className={styles.technologyContainer}>
             {technologiesData.map((technology, index) => (
                 <div key={index} className={styles.technologyDiv}>
                     <span className={styles.technologyIcon}> {technology.icon} </span>
@@ -17,6 +18,7 @@ const Technologies = () => {
                     </Typography>
                 </div>
             ))}
+            </div>
         </div>
     )
 }

@@ -1,14 +1,52 @@
-.technologyDiv {
+.technologyContainer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
+    justify-content: center; /* Center align items horizontally */
+    align-items: center; /* Center align items vertically */
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    gap: 2rem; /* Space between items */
+    position: relative; /* Ensures proper alignment */
+    width: 40%; /* Container takes 40% of the screen width */
+    max-width: 70%; /* Prevent growing beyond 70% width */
+    min-width: 30%; /* Ensure it doesn't shrink below 30% width */
+    margin: 0 auto; /* Center horizontally */
 }
 
+
+
+.technologyDiv {
+    display: flex;
+    flex-direction: column; /* Stack the icon, image, and name vertically */
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 calc(25% - 2rem); /* Equal width for items, subtracting gap */
+    max-width: calc(25% - 2rem); /* Prevent items from exceeding their allotted space */
+    box-sizing: border-box; /* Include padding and border in width calculations */
+    padding: 1rem;
+}
+
+.technologyDiv:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    z-index: 10;
+}
 
 .technologyIcon {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem;
+}
 
+@media (max-width: 768px) {
+    .technologyDiv {
+        flex: 1 1 calc(50% - 2rem); /* Two items per row */
+        max-width: calc(50% - 2rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .technologyDiv {
+        flex: 1 1 calc(100% - 2rem); /* One item per row */
+        max-width: calc(100% - 2rem);
+    }
 }
