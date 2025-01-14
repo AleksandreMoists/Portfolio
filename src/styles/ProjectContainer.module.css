@@ -1,0 +1,53 @@
+/* Centers the entire projects container and sets a max width */
+.projects {
+    max-width: 1200px;  /* or any desired max width */
+    margin: 0 auto;     /* centers the container horizontally */
+    padding: 1rem;      /* smaller padding around the container */
+  }
+  
+  /* Places text on the left, image + button on the right, 
+     and keeps the height less */
+  .projectCard {
+    display: flex;
+    align-items: center;   /* vertically center text and image/button */
+    justify-content: space-between;
+    gap: 1rem;             /* space between text and image/button */
+    margin-bottom: 1rem;   /* spacing between cards */
+    padding: 1rem;         /* smaller padding to reduce overall height */
+    border-radius: 8px;    /* optional rounded corners */
+  }
+  
+  /* Titles stacked, aligned to the left */
+  .projectTexts {
+    display: flex;
+    flex-direction: column;
+    width: 20px;
+    align-items: flex-start; /* left alignment for text */
+    gap: 0.4rem;            /* space between lines of text */
+    flex: 1;                /* let text expand while image+button remain on the right */
+  }
+  
+  /* Container for image and button on the right side */
+  .projectContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  /* vertically center image and button */
+    gap: 1rem;            /* horizontal space between image and button */
+  }
+  
+  /* Restricts the image container’s size to keep the overall height small */
+  .projectImageContainer {
+    width: auto;      
+    max-height: 120px;  /* reduce max height of the container */
+    overflow: hidden;    /* hide any overflow */
+  }
+  
+  /* Scales the image down and keeps it responsive */
+  .projectImage {
+    width: auto;
+    max-width: 500px;    /* limit the image width */
+    max-height: 750px;   /* limit the image height */
+    object-fit: cover;   /* crop if necessary to maintain aspect ratio */
+    display: block;
+  }
+  

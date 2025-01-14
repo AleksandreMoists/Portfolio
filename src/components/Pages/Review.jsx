@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import styles from "../styles/Review.module.css";
+import styles from "../../styles/Review.module.css";
 
 const reviewsData = [
   {

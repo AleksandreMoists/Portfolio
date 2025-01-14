@@ -1,5 +1,5 @@
 import Typography from "../Typography/Typography"
-import styles from "../styles/Technologies.module.css"
+import styles from "../../styles/Technologies.module.css"
 import { technologiesData } from "../../utils/data"
 
 const Technologies = () => {

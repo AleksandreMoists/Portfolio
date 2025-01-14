@@ -1,6 +1,6 @@
 import React, { useRef, useMemo } from "react";
-import Header from "./components/Header";
-import { useScrollSpy } from "./components/ScrollSpy";
+import Header from "./components/Pages/Header";
+import { useScrollSpy } from "./components/Scrolls/ScrollSpy";
 import { sectionData } from "./utils/sectionData";
 import './styles/fonts.css';
 import { motion } from "framer-motion";

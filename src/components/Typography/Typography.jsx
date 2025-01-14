@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Typography.module.css";
+import styles from "../../styles/Typography.module.css";
 
 const Typography = ({ variant = "h1", children, className = "" }) => {
   const Component = variant;

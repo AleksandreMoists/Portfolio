@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants, separatorVariants } from "../../animations/headerAnimation";
-import styles from "../styles/Header.module.css";
+import styles from "../../styles/Header.module.css";
 
 const Header = ({ activeSection, sectionRefs }) => {
   const sections = [
