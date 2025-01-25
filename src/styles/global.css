@@ -1,4 +1,7 @@
-/* Global resets and styles */
+* {
+box-sizing: border-box;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -18,12 +21,13 @@ body, html {
 }
 
 .section {
-  height: 100vh; /* Full height of the viewport */
+  min-height: 100vh; /* Full height of the viewport */
   width: 100%; /* Full width */
   text-align: center;
   font-size: 2rem;
   background: none;
   box-sizing: border-box;
+  background-color: #333333;
 }
 
 .section.about-section .aboutPage {
@@ -32,8 +36,9 @@ body, html {
 }
 
   
-  .section.projects-section {
-    background-color: #2a9d8f !important;
+  .section.projects-section { 
+    min-height: 50vh;
+    background-color:#1a1a1a;
   }
   
   .section.shop-section {

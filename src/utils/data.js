@@ -12,5 +12,10 @@ export const technologiesData = [
 ];
 
 export const projectsData = [
-    {id: 1, title: "Timly – HR Recruitment Software", image: Timly, }
-]
+    {id: 1, title: "Timly – HR Recruitment Software", image: Timly},
+    {id: 2, title: "Timly – HR Recruitment Software 2", image: Timly},
+    {id: 3, title: "Project Management Tool", image: Timly},
+    {id: 4, title: "E-commerce Platform", image: Timly},
+    {id: 5, title: "Social Media App", image: Timly},
+    {id: 6, title: "Online Learning Platform", image: Timly}
+];

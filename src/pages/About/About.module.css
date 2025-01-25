@@ -1,5 +1,6 @@
 .aboutPage {
     display: flex;
+    position: relative;
     flex-direction: row; /* Stack items vertically */
     justify-content: flex-start; /* Start items from the top */
     align-items: center; /* Center items horizontally */
@@ -21,6 +22,7 @@
 }
 
 
+
 .heading {
     font-size: 3rem;
     font-weight: bold;
@@ -33,6 +35,10 @@
 
 .paragraph {
     padding-left: 2rem;
+}
+
+.scrollIndicator {
+  cursor: pointer;
 }
 .container {
     position: relative; /* To allow positioning of child elements */
