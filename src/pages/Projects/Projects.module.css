@@ -1,48 +1,270 @@
 .projectsDiv {
-    display: flex;
-    flex-direction: column;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0 20px;
 }
 
 .projectsIntro {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5rem;
+display: flex;
+flex-direction: column;
+margin-top: 5rem;
 }
 
+hr {
+width: 100%;
+max-width: 1200px;
+height: 1px;
+border: 0;
+border-top: 1px solid #363b42;
+margin: 1em auto; /* Center the hr */
+}
+
+
 .projects {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+gap: 10rem;
+margin-top: 50px;
+width: 100%;
+max-width: 1200px;
+}
+
+.projectTypography {
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+flex: 1;
+font-size: 1.2rem;
+}
+
+.projectsContent {
+display: flex;
+align-items: center;
+gap: 2rem;
+flex: 2;
+}
+
+.title {
+  cursor: pointer   ;
+  background-image: linear-gradient(
+    to right,
+    #54b3d6,
+    #54b3d6 50%,
+    white 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.title:before{
+  content: '';
+  background: #54b3d6;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.title:hover {
+ background-position: 0;
+}
+
+.title:hover::before{
+  width: 100%;
+}
+
+.projectImageWrapper{
+    width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
+}
+
+.projectImage {
+    width: 500px;
+    position: relative;
+}
+.image {
+    width: 100%; /* Ensure it fills the container */
+    display: block;
+    min-width: unset; /* Reset unnecessary min-width */
+    order: 1; /* Maintain order */
+    transition: transform 0.3s ease; /* Smooth rotation animation */
+    transform-origin: center;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.6s
+  }
+
+  .content:hover {
+    opacity: 1;
+  }
+
+  .content > * {
+    transform: translateY(25px);
+    transition: transform 0.6s;
+  }
+
+  .textOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    font-size: 1.5rem;
+    padding: 1rem; /* For better spacing */
+    box-sizing: border-box;
+}
+
+.imageWrapper:hover .textOverlay {
+    opacity: 1; /* Show on hover */
+}
+  
+
+/* ======================
+Button Component
+====================== */
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white !important;
+    color: white !important;
+    background: transparent !important;
+    position: relative;
+    overflow: visible !important;
+    transition: all 0.3s !important;
+    border-radius: 2px;
+    height: 50px;
+    width: 150px;
+    min-width: 100px;
+    box-shadow: none !important;
+    padding-left: 40px;
+}
+
+.root:hover {
+    background: transparent !important;
+    color: white !important;
+    box-shadow: 0px 17px 18px -14px rgba(0, 0, 0, 0.08) !important;
+}
+
+.label {
+position: relative;
+left: 0;
+transition: left 0.4s ease;
+font-weight: 100;
+}
+
+.root:hover .label {
+left: 16px;
+}
+
+.startIcon {
+    position: absolute !important;
+    top: -20px;
+    left: 20px;
+    opacity: 0 !important;
+    transition: all 0.3s ease !important;
+    color: white !important;
+}
+
+.root:hover .startIcon {
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1 !important;
+    color: #00C4FF !important; /* Accent color appears on hover */
+}
+
+
+@media (max-width: 980px) {
+.projects {
+    flex-direction: column;
+    gap: 2rem;
     margin-top: 30px;
 }
 
 .projectTypography {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
 }
 
-.projectsImage {
-    max-width: 100%;    
-    width: 800px;
-}
-
+@media (max-width: 689px) {
 .projectsContent {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
 }
 
-.projectButoon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+.image {
+    width: 100%;
+    min-width: unset;
+    order: 1;
 }
 
-.primaryButton {
-    background: linear-gradient(90deg, grey 20%, #1a1a1a 80%)
+.root {
+    order: 2;
+    width: 100%;
+    margin-top: 1rem;
+    height: 45px;
+    padding-left: 35px; /* Adjusted for mobile */
+}
 
+.root:hover .label {
+    left: 8px;
+}
+
+.startIcon {
+    left: 15px; /* Adjusted for mobile */
+}
+}
+
+@media (max-width: 480px) {
+.projectsIntro {
+    margin-top: 3rem;
+}
+
+.root {
+    height: 40px;
+    font-size: 0.9rem;
+    padding-left: 30px;
+}
+
+.startIcon {
+    font-size: 1rem;
+    left: 10px; /* Further adjustment for small screens */
+}
 }
