@@ -1,10 +1,7 @@
 import React from "react";
-import Typewriter from "../../animations/introAnimation";
 import styles from './About.module.css';
-import LaptopModel from "../../animations/LaptopModel";
 import { OvalShapeSvg } from "../../assets/svgs/AboutPageSvgs/OvalShapeSvg";
 import Typography from "../../components/Typography/Typography";
-import { LaptopSvg } from "../../assets/svgs/AboutPageSvgs/LaptopSvg";
 import CircleShapeSvg from "../../assets/svgs/AboutPageSvgs/CircleShapeSvg";
 import CurlyShapeSvg from "../../assets/svgs/AboutPageSvgs/CurlyShapeSvg";
 import Reviews from "../../components/Pages/Review";
@@ -45,7 +42,6 @@ const About = () => {
           </span>
           <div className={styles.firstShape}>
             <span className={styles.laptopSvg}>
-                <LaptopModel />
             </span>
           </div>
           <span className={styles.curlySvg}>
