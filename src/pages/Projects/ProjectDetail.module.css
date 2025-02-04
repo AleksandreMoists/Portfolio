@@ -33,6 +33,20 @@ body {
   background-color: #007bff;
 }
 
+.projectTitle {
+  display: flex;
+  font-size: 2rem;
+  color: #CCCCCC;
+  margin-top: 1rem;
+}
+
+.projectLinks {
+  margin-top: 5px;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
 .detailImage {
   max-width: 900px;
   width: 100%;
@@ -128,6 +142,10 @@ button {
 }
 
 @media (max-width: 600px) {
+  .projectTitle {
+    font-size: 1.5rem;
+  }
+
   .buttonsContainer {
     height: 40px;
     gap: 1.25rem;

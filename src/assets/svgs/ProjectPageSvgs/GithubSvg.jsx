@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const GithubSvg = ({width=32, height=32}) => (
+const GithubSvg = ({width=60, height=60}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}

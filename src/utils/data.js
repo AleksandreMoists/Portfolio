@@ -23,7 +23,7 @@ export const projectsData = [
 ];
 
 
-export const linksData = [
-    { image: <GithubSvg />, label: "Example Website", newTab: true },
-    { image: <LiveWebSvg />, label: "OpenAI", newTab: true },
+export const projectLinks = [
+    { icon: <GithubSvg />, },
+    { icon: <LiveWebSvg />, },
   ];

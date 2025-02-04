@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const LiveWebSvg = ({width=32, height=32}) => (
+const LiveWebSvg = ({width=50, height=50}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}
