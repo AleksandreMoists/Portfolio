@@ -13,6 +13,7 @@ body {
   padding: 2rem;
   background-color: #121212;
   position: relative;
+  overflow: hidden;
 }
 
 .backIcon {
@@ -79,48 +80,6 @@ button {
   gap: 3rem;
 }
 
-.buttonsContainer {
-  display: flex;
-  position: absolute;
-  bottom: 5%;
-  width: 100%;
-  max-width: 500px;
-  height: 50px;
-  gap: 2.5rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.buttonStyle {
-  color: #FFFFFF !important;
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: bold;
-  border: 2px solid #007bff;
-  transition: color 0.3s ease-in-out;
-  z-index: 1;
-}
-
-.buttonStyle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: #007bff;
-  transition: width 0.4s ease-in-out;
-  z-index: -1;
-}
-.buttonStyle:hover::before {
-  width: 100%;
-}
-.buttonStyle:hover {
-  color: black;
-}
 
 @media (max-width: 1415px) {
   .content {
@@ -138,16 +97,6 @@ button {
     height: auto;
   }
 
-  /* Remove absolute positioning for buttons to let them flow with content */
-  .buttonsContainer {
-    position: static;  /* Remove absolute positioning */
-    margin-top: 2rem;  /* Add spacing above the buttons */
-    width: auto;       /* Allow natural width */
-    height: auto;      /* Remove fixed height */
-    gap: 1.25rem;
-    justify-content: center;
-    align-items: center;
-  }
 }
 
 
@@ -157,18 +106,5 @@ button {
   }
   .contentTypography {
     font-size: 1.1rem;
-  }
-  .buttonsContainer {
-    position: static;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    gap: 1.25rem;
-    margin-top: 1.5rem;
-    justify-content: center;
-  }
-  .buttonStyle {
-    font-size: 0.7rem;
-    padding: 8px 16px;
   }
 }

@@ -23,7 +23,8 @@ const Projects = () => {
   }, []);
 
   const handleSeeMore = (projectId) => {
-    navigate(`/projects/${projectId}`);
+    const scrollPos = window.pageYOffSet || document.documentElement.scrollTop;
+    navigate(`/projects/${projectId}`, {state: {scrollPos}});
   };
 
   return (
