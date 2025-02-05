@@ -1,5 +1,5 @@
 // ProjectDetail.jsx
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { projectsData } from "../../utils/data";
 import styles from "./ProjectDetail.module.css";
@@ -7,18 +7,15 @@ import { Button, IconButton, Typography } from "@mui/material";
 import ArrowBackSvg from "../../assets/svgs/ProjectPageSvgs/ArrowBackSvg";
 import BackSvg from "../../assets/svgs/ProjectPageSvgs/BackSvg";
 import NextSvg from "../../assets/svgs/ProjectPageSvgs/NextSvg";
-import { style } from "framer-motion/client";
 import ProjectLinks from "../../components/ProjectLinks/ProjectLinks";
 
 const ProjectDetail = () => {
-  const { id } = useParams();      // get the :id from the URL
-  const navigate = useNavigate();  // so we can navigate back
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  // Convert id to a number if necessary, depending on how your data is shaped
-  const projectId = parseInt(id, 10);  // Ensure id is a number
-  const maxProjectId = projectsData.length; // Get last project id
+  const projectId = parseInt(id, 10);
+  const maxProjectId = projectsData.length;
   const project = projectsData.find((p) => p.id === projectId);
-
 
   if (!project) {
     return (
@@ -32,48 +29,61 @@ const ProjectDetail = () => {
   return (
     <div className={styles.projectDetail}>
       <div className={styles.detailContainer}>
+        {/* Go back to home button */}
         <div className={styles.backIcon}>
-          <IconButton   
-            sx={{backgroundColor: 'blue', '&:hover': { backgroundColor: '#007bff' } }} 
-            onClick={() => navigate("/home")}>
-              <ArrowBackSvg  /> 
+          <IconButton
+            sx={{
+              backgroundColor: "blue",
+              "&:hover": { backgroundColor: "#007bff" },
+            }}
+            onClick={() => navigate("/home")}
+          >
+            <ArrowBackSvg />
           </IconButton>
         </div>
+
+        {/* Title */}
         <div className={styles.projectTitle}>
           <h2>{project.title}</h2>
         </div>
+
+        {/* Pass the project's specific links to ProjectLinks */}
         <div className={styles.projectLinks}>
-          <ProjectLinks />
+          <ProjectLinks links={project.links} />
         </div>
+
+        {/* Content */}
         <div className={styles.content}>
           <img
             src={project.image}
             alt={project.title}
             className={styles.detailImage}
           />
-          <Typography variant="p" className={styles.contentTypography}>{project.content}</Typography>
+          <Typography variant="p" className={styles.contentTypography}>
+            {project.content}
+          </Typography>
         </div>
-        <div className={styles.buttonsContainer}>
-        {projectId > 1 && (
-          <Button 
-            startIcon={<BackSvg />} 
-            onClick={() => navigate(`/projects/${projectId - 1}`)}
-            className={styles.buttonStyle}
-          >
-            Previous Project
-          </Button>
-        )}
 
-        {/* Next Project Button (Only if ID < maxProjectId) */}
-        {projectId < maxProjectId && (
-          <Button 
-            endIcon={<NextSvg />}
-            onClick={() => navigate(`/projects/${projectId + 1}`)}
-            className={styles.buttonStyle}
-          >
-            Next Project
-          </Button>
-        )}
+        {/* Next / Previous Buttons */}
+        <div className={styles.buttonsContainer}>
+          {projectId > 1 && (
+            <Button
+              startIcon={<BackSvg />}
+              onClick={() => navigate(`/projects/${projectId - 1}`)}
+              className={styles.buttonStyle}
+            >
+              Previous Project
+            </Button>
+          )}
+          {projectId < maxProjectId && (
+            <Button
+              endIcon={<NextSvg />}
+              onClick={() => navigate(`/projects/${projectId + 1}`)}
+              className={styles.buttonStyle}
+            >
+              Next Project
+            </Button>
+          )}
         </div>
       </div>
     </div>

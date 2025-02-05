@@ -1,135 +1,147 @@
 .projectsDiv {
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0 20px;
-}
-
-.projectsIntro {
-display: flex;
-flex-direction: column;
-margin-top: 5rem;
-color: #5089d9;
-}
-
-hr {
-width: 100%;
-max-width: 1200px;
-height: 1px;
-border: 0;
-border-top: 1px solid #363b42;
-margin: 1em auto; /* Center the hr */
-}
-
-
-.projects {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-gap: 10rem;
-margin-top: 50px;
-width: 100%;
-max-width: 1200px;
-}
-
-.projectTypography {
-display: flex;
-flex-direction: column;
-gap: 0.5rem;
-flex: 1;
-font-size: 1.2rem;
-}
-
-.projectsContent {
-display: flex;
-align-items: center;
-gap: 2rem;
-flex: 2;
-}
-
-.title {
-  cursor: pointer   ;
-  background-image: linear-gradient(
-    to right,
-    #54b3d6,
-    #54b3d6 50%,
-    white 50%
-  );
-  background-size: 200% 100%;
-  background-position: -100%;
-  display: inline-block;
-  padding: 5px 0;
-  position: relative;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 0.3s ease-in-out;
-}
-
-.title:before{
-  content: '';
-  background: #54b3d6;
-  display: block;
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  transition: all 0.3s ease-in-out;
-}
-
-.title:hover {
- background-position: 0;
-}
-
-.title:hover::before{
-  width: 100%;
-}
-
-.projectImageWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .projectsIntro {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    color: #5089d9;
+  }
+  
+  hr {
+    width: 100%;
+    max-width: 1200px;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #363b42;
+    margin: 1em auto; /* Center the hr */
+  }
+  
+  .projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10rem;
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .projectTypography {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    font-size: 1.2rem;
+  }
+  
+  .projectsContent {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 2;
+  }
+  
+  .title {
+    cursor: pointer;
+    background-image: linear-gradient(
+      to right,
+      #54b3d6,
+      #54b3d6 50%,
+      white 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .title:before {
+    content: '';
+    background: #54b3d6;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .title:hover {
+    background-position: 0;
+  }
+  
+  .title:hover::before {
+    width: 100%;
+  }
+  
+  .projectImageWrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.projectImage {
+  }
+  
+  .projectImage {
     width: 500px;
     position: relative;
-}
-.image {
-    width: 100%; /* Ensure it fills the container */
+    overflow: hidden; /* ensures content overlay stays within bounds */
+  }
+  
+  /* Hover the entire projectImage to reveal .content */
+  .projectImage:hover .content {
+    opacity: 1;
+  }
+  
+  .image {
+    width: 100%;
     display: block;
-    min-width: unset; /* Reset unnecessary min-width */
-    order: 1; /* Maintain order */
-    transition: transform 0.3s ease; /* Smooth rotation animation */
+    min-width: unset;
+    order: 1;
+    transition: transform 0.3s ease;
     transform-origin: center;
   }
-
+  
   .content {
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     position: absolute;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    opacity: 0;
-    transition: 0.6s
+    opacity: 0; /* hidden by default */
+    transition: 0.6s; /* fade in on hover */
+    cursor: pointer;
   }
-
-  .content:hover {
-    opacity: 1;
+  
+  .imageTitle {
+    font-size: 1.75rem;
+    color: #fff; 
+    margin-bottom: 0.5rem;
   }
-
-  .content > * {
-    transform: translateY(25px);
-    transition: transform 0.6s;
+  
+  .imageDescription {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-bottom: 20px;
+    color: #00c4ff;
   }
-
+  
   .textOverlay {
     position: absolute;
     top: 0;
@@ -147,17 +159,16 @@ flex: 2;
     font-size: 1.5rem;
     padding: 1rem; /* For better spacing */
     box-sizing: border-box;
-}
-
-.imageWrapper:hover .textOverlay {
-    opacity: 1; /* Show on hover */
-}
+  }
   
-
-/* ======================
-Button Component
-====================== */
-.root {
+  .imageWrapper:hover .textOverlay {
+    opacity: 1; /* Show on hover */
+  }
+  
+  /* ======================
+     Button Component
+  ====================== */
+  .root {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -173,99 +184,133 @@ Button Component
     min-width: 100px;
     box-shadow: none !important;
     padding-left: 40px;
-}
-
-.root:hover {
+  }
+  
+  .root:hover {
     background: white !important;
     color: #363b42 !important;
     box-shadow: 0px 17px 18px -14px rgba(0, 0, 0, 0.08) !important;
-}
-
-.label {
-position: relative;
-left: 0;
-transition: left 0.4s ease;
-font-weight: 100;
-}
-
-.root:hover .label {
-left: 16px;
-}
-
-.startIcon {
+  }
+  
+  .label {
+    position: relative;
+    left: 0;
+    transition: left 0.4s ease;
+    font-weight: 100;
+  }
+  
+  .root:hover .label {
+    left: 16px;
+  }
+  
+  .startIcon {
     position: absolute !important;
     top: -20px;
     left: 20px;
     opacity: 0 !important;
     transition: all 0.3s ease !important;
     color: white !important;
-}
-
-.root:hover .startIcon {
+  }
+  
+  .root:hover .startIcon {
     top: 50%;
     transform: translateY(-50%);
     opacity: 1 !important;
-    color: #00C4FF !important; /* Accent color appears on hover */
-}
-
-
-@media (max-width: 980px) {
-.projects {
-    flex-direction: column;
-    gap: 2rem;
-    margin-top: 30px;
-}
-
-.projectTypography {
-    width: 100%;
-    text-align: center;
-    font-size: 1rem;
-}
-}
-
-@media (max-width: 689px) {
-.projectsContent {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-}
-
-.image {
-    width: 100%;
-    min-width: unset;
-    order: 1;
-}
-
-.root {
-    order: 2;
-    width: 100%;
-    margin-top: 1rem;
-    height: 45px;
-    padding-left: 35px; /* Adjusted for mobile */
-}
-
-.root:hover .label {
-    left: 8px;
-}
-
-.startIcon {
-    left: 15px; /* Adjusted for mobile */
-}
-}
-
-@media (max-width: 480px) {
-.projectsIntro {
-    margin-top: 3rem;
-}
-
-.root {
-    height: 40px;
-    font-size: 0.9rem;
-    padding-left: 30px;
-}
-
-.startIcon {
-    font-size: 1rem;
-    left: 10px; /* Further adjustment for small screens */
-}
-}
+    color: #00c4ff !important; /* Accent color appears on hover */
+  }
+  
+  /* ======================
+     Media Queries
+  ====================== */
+  
+  /* Tablet-ish screens < 980px */
+  @media (max-width: 980px) {
+    .projects {
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 30px;
+    }
+  
+    .projectTypography {
+      width: 100%;
+      text-align: center;
+      font-size: 1.1rem; /* Slightly smaller for medium screens */
+    }
+  }
+  
+  /* Smaller screens < 689px */
+  @media (max-width: 689px) {
+    .projectsContent {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+  
+    /* Scale down project typography */
+    .projectTypography {
+      font-size: 1rem;
+    }
+  
+    /* Scale the image container to full width on mobile */
+    .projectImage {
+      width: 100%;
+    }
+  
+    /* Adjust overlay text sizes */
+    .imageTitle {
+      font-size: 1.4rem;
+    }
+    .imageDescription {
+      font-size: 0.9rem;
+    }
+  
+    /* Adjust button */
+    .root {
+      order: 2;
+      width: 100%;
+      margin-top: 1rem;
+      height: 45px;
+      padding-left: 35px;
+    }
+  
+    .root:hover .label {
+      left: 8px;
+    }
+  
+    .startIcon {
+      left: 15px;
+    }
+  }
+  
+  /* Very small screens < 480px */
+  @media (max-width: 480px) {
+    .projectsIntro {
+      margin-top: 3rem;
+    }
+    
+    /* Make typography smaller again */
+    .projectTypography {
+      font-size: 0.9rem;
+    }
+  
+    .imageTitle {
+      font-size: 1.25rem;
+    }
+  
+    .imageDescription {
+      font-size: 0.8rem;
+    }
+  
+    /* Smaller button */
+    .root {
+      height: 40px;
+      font-size: 0.9rem;
+      padding-left: 30px;
+    }
+  
+    .startIcon {
+      font-size: 1rem;
+      left: 10px;
+    }
+  }
+  

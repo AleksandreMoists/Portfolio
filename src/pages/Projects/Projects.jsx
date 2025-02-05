@@ -35,13 +35,13 @@ const Projects = () => {
                 <Typography variant='h3'>Software Development</Typography>
               </span>
               <span>
-                <Typography variant='h3' className={styles.title}>
+                <Typography variant='h3' className={styles.title} onClick={() => handleSeeMore(project.id)}>
                   {project.title}
                 </Typography>
               </span>
             </div>
 
-            <div className={styles.projectsContent}>
+            <div className={styles.projectsContent} onClick={() => handleSeeMore(project.id)}>
               <div style={{ marginTop: '-0.5rem' }} className={styles.projectImageWrapper}>
                 <div className={styles.projectImage}>
                   <img 
@@ -50,8 +50,8 @@ const Projects = () => {
                     className={styles.image} 
                   />
                   <div className={styles.content}>
-                    <h1>Image hover effect</h1>
-                    <p>Lorem Ipsum dolor sit amet</p>
+                    <Typography variant='h2' className={styles.imageTitle}>{project.title}</Typography>
+                    <Typography variant='p' className={styles.imageDescription}>{project.description}</Typography>
                   </div>
                 </div>
               </div>

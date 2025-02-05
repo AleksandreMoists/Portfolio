@@ -9,16 +9,19 @@ import {
 import Home from "./Home";  // The component we just created
 import ProjectDetail from "./pages/Projects/ProjectDetail";
 import "./styles/fonts.css";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects/:id" element={<ProjectDetail />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </Router>
+    // <AnimatePresence mode="wait">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Router>
+    // </AnimatePresence>
   );
 }
 
