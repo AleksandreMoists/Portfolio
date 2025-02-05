@@ -1,27 +1,36 @@
+// App.js
 import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate
+  Navigate,
+  useLocation
 } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
-import Home from "./Home";  // The component we just created
+import Home from "./Home";
 import ProjectDetail from "./pages/Projects/ProjectDetail";
 import "./styles/fonts.css";
-import { AnimatePresence } from "framer-motion";
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects/:id" element={<ProjectDetail />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 function App() {
   return (
-    // <AnimatePresence mode="wait">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects/:id" element={<ProjectDetail />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Router>
-    // </AnimatePresence>
+    <Router>
+      <AnimatedRoutes />
+    </Router>
   );
 }
 

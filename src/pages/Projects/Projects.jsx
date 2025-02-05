@@ -1,5 +1,7 @@
+// Projects.jsx (if used separately)
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // <-- Add this
+import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion";
 import Typewriter from '../../animations/introAnimation';
 import styles from "./Projects.module.css";
 import Typography from '../../components/Typography/Typography';
@@ -8,20 +10,31 @@ import { Button } from '@mui/material';
 import Aos from 'aos';
 import NextSvg from '../../assets/svgs/ProjectPageSvgs/NextSvg';
 
+const pageVariants = {
+  initial: { x: 0, opacity: 1 },
+  exit: { x: -100, opacity: 0 } // Adjust as needed
+};
+
 const Projects = () => {
-  const navigate = useNavigate(); // <-- For navigating to detail page
+  const navigate = useNavigate();
 
   useEffect(() => {
     Aos.init();
   }, []);
 
   const handleSeeMore = (projectId) => {
-    // Navigate to /projects/:id
     navigate(`/projects/${projectId}`);
   };
 
   return (
-    <div className={styles.projectsDiv}>
+    <motion.div 
+      className={styles.projectsDiv}
+      initial="initial"
+      animate="initial"
+      exit="exit"
+      variants={pageVariants}
+      transition={{ duration: 0.5 }}
+    >
       <div className={styles.projectsIntro}>
         <Typewriter text={["Lets explore my Projects"]}/>
       </div>
@@ -35,13 +48,20 @@ const Projects = () => {
                 <Typography variant='h3'>Software Development</Typography>
               </span>
               <span>
-                <Typography variant='h3' className={styles.title} onClick={() => handleSeeMore(project.id)}>
+                <Typography 
+                  variant='h3' 
+                  className={styles.title} 
+                  onClick={() => handleSeeMore(project.id)}
+                >
                   {project.title}
                 </Typography>
               </span>
             </div>
 
-            <div className={styles.projectsContent} onClick={() => handleSeeMore(project.id)}>
+            <div 
+              className={styles.projectsContent} 
+              onClick={() => handleSeeMore(project.id)}
+            >
               <div style={{ marginTop: '-0.5rem' }} className={styles.projectImageWrapper}>
                 <div className={styles.projectImage}>
                   <img 
@@ -50,8 +70,12 @@ const Projects = () => {
                     className={styles.image} 
                   />
                   <div className={styles.content}>
-                    <Typography variant='h2' className={styles.imageTitle}>{project.title}</Typography>
-                    <Typography variant='p' className={styles.imageDescription}>{project.description}</Typography>
+                    <Typography variant='h2' className={styles.imageTitle}>
+                      {project.title}
+                    </Typography>
+                    <Typography variant='p' className={styles.imageDescription}>
+                      {project.description}
+                    </Typography>
                   </div>
                 </div>
               </div>
@@ -64,7 +88,7 @@ const Projects = () => {
                     label: styles.label,
                     startIcon: styles.startIcon
                   }}
-                  onClick={() => handleSeeMore(project.id)} // <-- pass project.id to navigate
+                  onClick={() => handleSeeMore(project.id)}
                 >
                   See More
                 </Button>
@@ -73,7 +97,7 @@ const Projects = () => {
           </div>
         </React.Fragment>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
