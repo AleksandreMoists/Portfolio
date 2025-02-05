@@ -7,6 +7,7 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth; /* Enables smooth scrolling */
+    background-color: #1a1a1a;
 }
 
 /* Utility classes */

@@ -1,17 +1,26 @@
 // Home.jsx
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "./components/Pages/Header";
 import { useScrollSpy } from "./components/Scrolls/ScrollSpy";
 import { sectionData } from "./utils/sectionData";
+import { useLocation } from "react-router-dom";
 
 function Home() {
+  const location = useLocation();
   const sectionRefs = useMemo(
     () => sectionData.map(() => React.createRef()),
     []
   );
   
   const activeSection = useScrollSpy(sectionRefs);
+
+  useEffect(() => {
+    // If there is a scrollPos passed from ProjectDetail, scroll to that position.
+    if (location.state && location.state.scrollPos) {
+      window.scrollTo({ top: location.state.scrollPos, behavior: "smooth" });
+    }
+  }, [location.state]);
 
   return (
     <motion.div

@@ -1,6 +1,6 @@
 // ProjectDetail.jsx
 import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { projectsData } from "../../utils/data";
 import styles from "./ProjectDetail.module.css";
 import { Button, IconButton, Typography } from "@mui/material";
@@ -12,20 +12,26 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const ProjectDetail = () => {
   const { id } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
 
   const projectId = parseInt(id, 10);
   const maxProjectId = projectsData.length;
   const project = projectsData.find((p) => p.id === projectId);
+  const { scrollPos = 0 } = location.state || {};
   
   // direction: 1 for "next", -1 for "previous"
   const [direction, setDirection] = useState(0);
-
+  
+  const onExitClick = () => {
+    navigate('/', {state: { scrollPos }});
+  }
+  
   if (!project) {
     return (
       <div className={styles.detailContainer}>
         <h2>Project not found</h2>
-        <button onClick={() => navigate(-1)}>Go Back</button>
+        <button onClick={onExitClick}>Go Back</button>
       </div>
     );
   }
@@ -41,7 +47,8 @@ const ProjectDetail = () => {
       opacity: 1
     },
     exit: (direction) => ({
-      x: direction > 0 ? -1000 : 1000,
+      // now the exit uses the same side as enter
+      x: direction > 0 ? "100%" : "-100%",
       opacity: 0
     })
   };
@@ -74,15 +81,15 @@ const ProjectDetail = () => {
         <div className={styles.detailContainer}>
           {/* Go back to home button */}
           <div className={styles.backIcon}>
-            <IconButton
-              sx={{
-                backgroundColor: "blue",
-                "&:hover": { backgroundColor: "#007bff" }
-              }}
-              onClick={() => navigate("/home")}
-            >
-              <ArrowBackSvg />
-            </IconButton>
+              <IconButton
+                sx={{
+                  backgroundColor: "blue",
+                  "&:hover": { backgroundColor: "#007bff" }
+                }}
+                onClick={onExitClick}
+              >
+                <ArrowBackSvg />
+              </IconButton>
           </div>
 
           {/* Title */}
@@ -105,28 +112,6 @@ const ProjectDetail = () => {
             <Typography variant="p" className={styles.contentTypography}>
               {project.content}
             </Typography>
-          </div>
-
-          {/* Next / Previous Buttons */}
-          <div className={styles.buttonsContainer}>
-            {projectId > 1 && (
-              <Button
-                startIcon={<BackSvg />}
-                onClick={handlePrev}
-                className={styles.buttonStyle}
-              >
-                Previous Project
-              </Button>
-            )}
-            {projectId < maxProjectId && (
-              <Button
-                endIcon={<NextSvg />}
-                onClick={handleNext}
-                className={styles.buttonStyle}
-              >
-                Next Project
-              </Button>
-            )}
           </div>
         </div>
       </motion.div>
