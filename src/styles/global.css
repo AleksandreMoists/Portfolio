@@ -1,3 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #a855f7, #6366f1);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #8b44ee, #5858f0);
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.4);
+}
+
+/* Modern Scrollbar for Firefox */
+@supports (scrollbar-color: auto) {
+  * {
+    scrollbar-color: #a855f7 #1f2937;
+    scrollbar-width: thin;
+  }
+}
+
 * {
 box-sizing: border-box;
 }
@@ -7,7 +43,7 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth; /* Enables smooth scrolling */
-    background-color: #1a1a1a;
+    background-color:#111827;
 }
 
 /* Utility classes */
@@ -28,7 +64,7 @@ body, html {
   font-size: 2rem;
   background: none;
   box-sizing: border-box;
-  background-color:#2b2b2b;
+  background-color:#111827;
 }
 
 .section.about-section .aboutPage {
@@ -39,13 +75,4 @@ body, html {
   
   .section.projects-section { 
     min-height: 50vh;
-    background-color:#1a1a1a;
-  }
-  
-  .section.shop-section {
-    background-color: #e76f51 !important;
-  }
-  
-  .section.contact-section {
-    background-color: #264653 !important;
   }

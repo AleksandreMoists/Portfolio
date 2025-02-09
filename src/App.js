@@ -8,10 +8,10 @@ import {
   useLocation
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-
 import Home from "./Home";
 import ProjectDetail from "./pages/Projects/ProjectDetail";
 import "./styles/fonts.css";
+import './styles/global.css';
 
 const AnimatedRoutes = () => {
   const location = useLocation();

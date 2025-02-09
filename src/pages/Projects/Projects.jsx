@@ -36,7 +36,7 @@ const Projects = () => {
       variants={pageVariants}
       transition={{ duration: 0.5 }}
     >
-      <div className={styles.projectsIntro}>
+      <div className="text-xl bg-gradient-to-r from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent mb-8">
         <Typewriter text={["Lets explore my Projects"]}/>
       </div>
 
