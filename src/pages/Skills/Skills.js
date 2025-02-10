@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { certificatesData } from '../../utils/data';
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState('certificates');
@@ -6,10 +7,10 @@ const Skills = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   // Dummy data - replace with your actual content
-  const certificates = Array(12).fill(null).map((_, i) => ({
-    id: i + 1,
-    title: `Certificate ${i + 1}`,
-    image: `https://picsum.photos/300/200?random=${i}`
+  const certificates = certificatesData.map((certificate) => ({
+    id: certificate.id,
+    title: certificate.title,
+    image: certificate.image,
   }));
 
   const techStack = [
@@ -60,7 +61,7 @@ const Skills = () => {
       )}
 
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-8 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent mb-8 text-center">
           Skills & Certifications
         </h2>
 
@@ -104,8 +105,8 @@ const Skills = () => {
             }`}
           >
             <div className="space-y-8">
-              <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${
-                showAllCerts ? 'max-h-[80vh] overflow-y-auto pb-4' : ''
+            <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${
+                showAllCerts ? 'max-h-[60vh] md:max-h-[80vh] overflow-y-auto pb-20' : ''
               }`}>
                 {certificates
                   .slice(0, showAllCerts ? certificates.length : 6)
@@ -121,7 +122,7 @@ const Skills = () => {
                         className="w-full h-48 object-cover"
                       />
                       <div className="p-4">
-                        <h3 className="text-white font-medium">{cert.title}</h3>
+                        <h3 className="text-white font-medium text-sm">{cert.title}</h3>
                         <p className="text-gray-400 text-sm mt-2">Click to view</p>
                       </div>
                     </div>
@@ -129,8 +130,7 @@ const Skills = () => {
 
                 {/* Gradient overlay for scroll indication */}
                 {showAllCerts && (
-                  <div className="sticky bottom-0 h-20 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none -mt-20" />
-                )}
+                  <div className="sticky bottom-0 h-20 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none -mt-20" />                )}
               </div>
 
               {certificates.length > 6 && (

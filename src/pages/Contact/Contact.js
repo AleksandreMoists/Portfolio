@@ -11,7 +11,7 @@ const Contact = memo(() => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading Section */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent">
             Get in Touch
           </h2>
           <p className="mt-4 text-slate-400 max-w-2xl mx-auto text-sm md:text-base">
