@@ -1,9 +1,14 @@
 // ProjectLinks.jsx
 import React from "react";
+import PropTypes from 'prop-types';
 import { IconButton } from "@mui/material";
 import styles from "./ProjectLinks.module.css";
 
 const ProjectLinks = ({ links }) => {
+  if (!links || links.length === 0) {
+    return null;
+  }
+
   return (
     <div className={styles.projectLinks}>
       <ul className={styles.linkUl}>
@@ -27,6 +32,15 @@ const ProjectLinks = ({ links }) => {
       </ul>
     </div>
   );
+};
+
+ProjectLinks.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default ProjectLinks;
