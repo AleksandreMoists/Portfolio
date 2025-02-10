@@ -1,12 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { certificatesData } from '../../utils/data';
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState('certificates');
   const [showAllCerts, setShowAllCerts] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  // Default: 6 items on desktop, 2 on mobile
+  const [itemsToShow, setItemsToShow] = useState(6);
 
-  // Dummy data - replace with your actual content
+  // Update itemsToShow based on window width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setItemsToShow(2);
+      } else {
+        setItemsToShow(6);
+      }
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Map the certificate data
   const certificates = certificatesData.map((certificate) => ({
     id: certificate.id,
     title: certificate.title,
@@ -65,7 +85,7 @@ const Skills = () => {
           Skills & Certifications
         </h2>
 
-        {/* Tab Buttons Container */}
+        {/* Tab Buttons */}
         <div className="flex justify-center mb-8">
           <div className="inline-flex p-0.5 md:p-1 rounded-full bg-gray-800 border-2 border-gray-700">
             <button
@@ -105,11 +125,12 @@ const Skills = () => {
             }`}
           >
             <div className="space-y-8">
-            <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${
-                showAllCerts ? 'max-h-[60vh] md:max-h-[80vh] overflow-y-auto pb-20' : ''
+              {/* Certificate grid with vertical scrolling only */}
+              <div className={`relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${
+                showAllCerts ? 'max-h-[60vh] md:max-h-[80vh] overflow-y-auto overflow-x-hidden pb-20' : ''
               }`}>
                 {certificates
-                  .slice(0, showAllCerts ? certificates.length : 6)
+                  .slice(0, showAllCerts ? certificates.length : itemsToShow)
                   .map((cert) => (
                     <div 
                       key={cert.id}
@@ -127,13 +148,10 @@ const Skills = () => {
                       </div>
                     </div>
                   ))}
-
-                {/* Gradient overlay for scroll indication */}
-                {showAllCerts && (
-                  <div className="sticky bottom-0 h-20 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none -mt-20" />                )}
               </div>
 
-              {certificates.length > 6 && (
+              {/* Show More / Show Less Button */}
+              {certificates.length > itemsToShow && (
                 <div className="flex justify-center">
                   <button
                     onClick={() => setShowAllCerts(!showAllCerts)}
@@ -176,7 +194,6 @@ const Skills = () => {
                   className="flex flex-col items-center p-4 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors group"
                 >
                   <div className="w-16 h-16 mb-2 flex items-center justify-center">
-                    {/* Replace with actual SVG */}
                     <img 
                       src={`/icons/${tech.icon}`} 
                       alt={tech.name}
