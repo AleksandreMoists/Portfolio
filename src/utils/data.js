@@ -13,6 +13,7 @@ import NodejsMongoDB from "../assets/images/NodejsMongoDB.png"
 import PythonDataScience from "../assets/images/PythonDataScience.png"
 import AIPython from "../assets/images/AIPython.png"
 import VersContr from "../assets/images/VersContr.png"
+import Photo from "../assets/images/Photo.png"
 
 export const technologiesData = [
   {id: 1, icon: <JsSvg />},
@@ -45,4 +46,8 @@ export const certificatesData = [
   {id: 6, title: "Python for Data Science", image: PythonDataScience},
   {id: 7, title: "AI with Python", image: AIPython},
   {id: 8, title: "Version Control with Git", image: VersContr},
+];
+
+export const imagePaths = [
+  Photo
 ];
