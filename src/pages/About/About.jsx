@@ -205,18 +205,23 @@ const About = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              I’m a Software Engineer and IBM Certified Full-Stack Developer, specializing in frontend development with React and Next.js. On the backend, I work with Node.js and its frameworks to build efficient and scalable systems.
+              I'm a Software Engineer and IBM Certified Full-Stack Developer, specializing in frontend development with React and Next.js. On the backend, I work with Node.js and its frameworks to build efficient and scalable systems.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="" className="w-full lg:w-auto">
-              <button 
-                data-aos="fade-up"
-                data-aos-duration="800"
-                className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
+              <a 
+                href="https://drive.google.com/file/d/1MntiaYaZB8gDzKuBVv7qw0jz8P5Bl6jM/view?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full lg:w-auto"
               >
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Resume
-              </button>
+                <button 
+                  data-aos="fade-up"
+                  data-aos-duration="800"
+                  className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
+                >
+                  <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Resume
+                </button>
               </a>
             </div>
           </div>
