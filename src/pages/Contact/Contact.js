@@ -21,6 +21,7 @@ const Contact = memo(() => {
 
         <div className="max-w-3xl mx-auto bg-gray-800 rounded-2xl p-6 md:p-8 shadow-xl space-y-8">
           {/* Direct Email Button */}
+         
           <a
             href="mailto:aleksandremoistsrapishvili@gmail.com"
             className="
@@ -43,9 +44,9 @@ const Contact = memo(() => {
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
             </svg>
-            <span>Send me an Email</span>
+            {/* <span>Send me an Email</span> */}
           </a>
-
+            
           {/* Social Links */}
           <div className="flex justify-center space-x-6">
             <a
